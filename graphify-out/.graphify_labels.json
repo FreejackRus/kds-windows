@@ -1,0 +1,18 @@
+{
+  "0": "lib.rs",
+  "1": "properties",
+  "2": "definitions",
+  "3": "properties",
+  "4": "definitions",
+  "5": "tauri.conf.json",
+  "6": "package.json",
+  "7": "compilerOptions",
+  "8": "AppData",
+  "9": "main.ts",
+  "10": ".new",
+  "11": "default.json",
+  "12": "KDS Guard for Windows",
+  "13": "build.rs",
+  "14": "main.rs",
+  "15": "vite.config.ts"
+}
