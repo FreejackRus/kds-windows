@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KDS Guard</title>
+    <script type="module" src="/src/main.ts" defer></script>
+  </head>
+  <body>
+    <main class="shell">
+      <section class="topbar">
+        <div>
+          <p class="eyebrow">Windows companion</p>
+          <h1>KDS Guard</h1>
+        </div>
+        <div class="status-pill" id="status-pill">Stopped</div>
+      </section>
+
+      <section class="dashboard">
+        <div class="panel hero-panel">
+          <div class="alarm-state" id="alarm-state">No active alarm</div>
+          <div class="alarm-text" id="alarm-text">Monitoring is not running yet.</div>
+          <div class="alarm-actions">
+            <button id="start-btn" class="primary">Start monitor</button>
+            <button id="stop-btn">Stop</button>
+            <button id="mute-btn">Mute 30 min</button>
+            <button id="stop-alarm-btn">Stop sound</button>
+            <button id="alarm-link-btn" hidden>Open alarm</button>
+          </div>
+        </div>
+
+        <div class="panel metrics">
+          <div>
+            <span>Last check</span>
+            <strong id="last-check">—</strong>
+          </div>
+          <div>
+            <span>Last success</span>
+            <strong id="last-success">—</strong>
+          </div>
+          <div>
+            <span>Sleep guard</span>
+            <strong id="sleep-state">—</strong>
+          </div>
+          <div>
+            <span>Muted until</span>
+            <strong id="muted-until">—</strong>
+          </div>
+          <div>
+            <span>Watchdog restarts</span>
+            <strong id="watchdog-restarts">0</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid">
+        <form class="panel settings" id="settings-form">
+          <h2>Settings</h2>
+          <label>
+            Server URL
+            <input id="server-url" autocomplete="off" spellcheck="false" />
+          </label>
+          <label>
+            Poll interval, sec
+            <input id="poll-interval" type="number" min="1" max="3600" />
+          </label>
+          <label>
+            Cookie header
+            <textarea id="cookie-header" rows="3" spellcheck="false"></textarea>
+          </label>
+          <div class="split">
+            <label>
+              Basic auth user
+              <input id="basic-user" autocomplete="off" spellcheck="false" />
+            </label>
+            <label>
+              Basic auth password
+              <input id="basic-pass" type="password" autocomplete="off" />
+            </label>
+          </div>
+          <div class="toggles">
+            <label class="check">
+              <input id="sleep-guard" type="checkbox" />
+              Keep Windows awake
+            </label>
+            <label class="check">
+              <input id="start-on-launch" type="checkbox" />
+              Start monitor on app launch
+            </label>
+            <label class="check">
+              <input id="autostart" type="checkbox" />
+              Launch with Windows
+            </label>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="primary">Save settings</button>
+            <button type="button" id="open-portal-btn">Open portal</button>
+          </div>
+        </form>
+
+        <section class="panel tools">
+          <h2>Diagnostics</h2>
+          <div class="tool-row">
+            <button id="test-alarm-btn">Test alarm</button>
+            <button id="test-gentle-btn">Test gentle</button>
+          </div>
+          <div class="error-box" id="last-error">No errors.</div>
+          <div class="log-box" id="log-box"></div>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>
